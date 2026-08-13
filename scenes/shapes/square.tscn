@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://crfoqeonwmalj"]
+
+[ext_resource type="Script" uid="uid://y27vjotx4wrw" path="res://scripts/shape.gd" id="1_nhblk"]
+[ext_resource type="Texture2D" uid="uid://cd07dskc0vbue" path="res://sprites/shapes.png" id="2_w0ugp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5vlx"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg705"]
+size = Vector2(34, 34)
+
+[node name="Triangle" type="RigidBody2D" unique_id=1388095528]
+script = ExtResource("1_nhblk")
+level = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043828681]
+position = Vector2(2.3841858e-07, -2.3841858e-07)
+scale = Vector2(1.9999999, 1.9999999)
+texture = ExtResource("2_w0ugp")
+hframes = 3
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1953158241]
+shape = SubResource("RectangleShape2D_x5vlx")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1571201657]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=727100575]
+shape = SubResource("RectangleShape2D_xg705")

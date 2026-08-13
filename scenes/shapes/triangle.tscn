@@ -8,14 +8,16 @@ script = ExtResource("1_70bgu")
 level = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043828681]
+position = Vector2(2.3841858e-07, -2.3841858e-07)
+scale = Vector2(1.4999999, 1.4999999)
 texture = ExtResource("2_f25o0")
 hframes = 3
 frame = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=103851016]
-polygon = PackedVector2Array(0, -8, -8, 8, 8, 8)
+polygon = PackedVector2Array(0, -14, -12, 12, 12, 12)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1571201657]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=233361893]
-polygon = PackedVector2Array(0, -9, 9, 9, -9, 9)
+polygon = PackedVector2Array(0, -16, 13, 13, -13, 13)

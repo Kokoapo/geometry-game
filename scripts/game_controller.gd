@@ -9,10 +9,12 @@ extends Node2D
 
 var shape_holding: Shape
 var can_merge: bool
+var score: int
 
 func _ready() -> void:
 	hold_shape()
 	can_merge = true
+	score = 0
 	
 func _process(_delta: float) -> void:
 	if shape_holding:
@@ -59,4 +61,5 @@ func _on_merge(level: int, shape_1: Shape, shape_2: Shape) -> void:
 		var shape_scene: PackedScene = shape_scenes[level]
 		var _shape_instance: Shape = create_shape(shape_scene, pos)
 	
+	score += 2**level
 	can_merge = false
