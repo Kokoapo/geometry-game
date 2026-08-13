@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dr3ifbcbfhbys"]
+
+[ext_resource type="Script" uid="uid://y27vjotx4wrw" path="res://scripts/shape.gd" id="1_70bgu"]
+[ext_resource type="Texture2D" uid="uid://cd07dskc0vbue" path="res://sprites/shapes.png" id="2_f25o0"]
+
+[node name="Triangle" type="RigidBody2D" unique_id=1388095528]
+script = ExtResource("1_70bgu")
+level = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043828681]
+texture = ExtResource("2_f25o0")
+hframes = 3
+frame = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=103851016]
+polygon = PackedVector2Array(0, -8, -8, 8, 8, 8)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1571201657]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=233361893]
+polygon = PackedVector2Array(0, -9, 9, 9, -9, 9)

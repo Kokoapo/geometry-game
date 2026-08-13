@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://jqh3me6gql4y"]
+
+[ext_resource type="Texture2D" uid="uid://dthpfnlpv7u2v" path="res://sprites/bucket.png" id="1_ojsi1"]
+
+[node name="Bucket" type="StaticBody2D" unique_id=308444015]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2123984300]
+texture = ExtResource("1_ojsi1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=28516453]
+polygon = PackedVector2Array(-88, -88, -88, 88, 88, 88, 88, -88, 72, -88, 72, 72, -72, 72, -72, -88)

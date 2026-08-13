@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dmg11j3wxlob3"]
+
+[ext_resource type="Script" uid="uid://cm63046x0775b" path="res://scripts/game_controller.gd" id="1_vc4nx"]
+[ext_resource type="PackedScene" uid="uid://jqh3me6gql4y" path="res://scenes/bucket.tscn" id="1_vq0e2"]
+[ext_resource type="PackedScene" uid="uid://dyc4vpc07n7h6" path="res://scenes/shapes/circle.tscn" id="2_vc4nx"]
+[ext_resource type="PackedScene" uid="uid://dr3ifbcbfhbys" path="res://scenes/shapes/triangle.tscn" id="3_rc0pn"]
+
+[node name="GameController" type="Node2D" unique_id=868307309]
+script = ExtResource("1_vc4nx")
+shape_scenes = Array[PackedScene]([ExtResource("2_vc4nx"), ExtResource("3_rc0pn")])
+y_limit = -150
+inf_limit = -70
+sup_limit = 70
+
+[node name="Bucket" parent="." unique_id=308444015 instance=ExtResource("1_vq0e2")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=706493820]
+position = Vector2(0, -74)
+zoom = Vector2(2, 2)
+
+[node name="Timer" type="Timer" parent="." unique_id=558952566]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
