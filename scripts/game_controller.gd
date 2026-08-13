@@ -38,7 +38,7 @@ func create_shape(shape_scene: PackedScene, pos: Vector2) -> Shape:
 	var shape_instance: Shape = shape_scene.instantiate()
 	
 	shape_instance.global_position = pos
-	add_child(shape_instance)
+	call_deferred("add_child", shape_instance)
 	shape_instance.merge.connect(_on_merge)
 
 	return shape_instance
