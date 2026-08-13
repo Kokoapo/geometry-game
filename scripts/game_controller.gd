@@ -11,7 +11,7 @@ var shape_holding: Shape
 var can_merge: bool
 
 func _ready() -> void:
-	shape_holding = create_shape()
+	hold_shape()
 	can_merge = true
 	
 func _process(_delta: float) -> void:
@@ -28,19 +28,23 @@ func get_random_shape_scene() -> PackedScene:
 	var index: int = randi_range(0, shape_scenes.size()-1)
 	return shape_scenes[index]
 
-func create_shape() -> Shape:
-	var shape_scene = get_random_shape_scene()
+func hold_shape() -> void:
+	var shape_scene: PackedScene = get_random_shape_scene()
+	var shape_instance: Shape = create_shape(shape_scene, Vector2(get_global_mouse_position().x, y_limit))
+	shape_instance.gravity_scale = 0.0
+	shape_holding = shape_instance
+
+func create_shape(shape_scene: PackedScene, pos: Vector2) -> Shape:
 	var shape_instance: Shape = shape_scene.instantiate()
 	
-	shape_instance.gravity_scale = 0.0
-	shape_instance.global_position = Vector2(get_global_mouse_position().x, y_limit)
+	shape_instance.global_position = pos
 	add_child(shape_instance)
 	shape_instance.merge.connect(_on_merge)
 
 	return shape_instance
 
 func _on_timer_timeout() -> void:
-	shape_holding = create_shape()
+	hold_shape()
 	
 func _on_merge(level: int, shape_1: Shape, shape_2: Shape) -> void:
 	if not can_merge:
@@ -52,10 +56,7 @@ func _on_merge(level: int, shape_1: Shape, shape_2: Shape) -> void:
 	shape_2.queue_free()
 	
 	if level < shape_scenes.size():
-		var shape_scene = shape_scenes[level]
-		var shape_instance: Shape = shape_scene.instantiate()
-		shape_instance.global_position = pos
-		add_child(shape_instance)
-		shape_instance.merge.connect(_on_merge)
+		var shape_scene: PackedScene = shape_scenes[level]
+		var _shape_instance: Shape = create_shape(shape_scene, pos)
 	
 	can_merge = false
