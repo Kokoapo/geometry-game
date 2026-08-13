@@ -5,13 +5,48 @@
 [ext_resource type="PackedScene" uid="uid://dyc4vpc07n7h6" path="res://scenes/shapes/circle.tscn" id="2_vc4nx"]
 [ext_resource type="PackedScene" uid="uid://dr3ifbcbfhbys" path="res://scenes/shapes/triangle.tscn" id="3_rc0pn"]
 [ext_resource type="PackedScene" uid="uid://crfoqeonwmalj" path="res://scenes/shapes/square.tscn" id="4_h843c"]
+[ext_resource type="Script" uid="uid://beyipdo1lbwa5" path="res://scripts/ui_controller.gd" id="5_e85df"]
 
-[node name="GameController" type="Node2D" unique_id=868307309]
+[sub_resource type="LabelSettings" id="LabelSettings_x5vlx"]
+font_size = 32
+
+[node name="GameController" type="Node2D" unique_id=1347987967]
 script = ExtResource("1_vc4nx")
 shape_scenes = Array[PackedScene]([ExtResource("2_vc4nx"), ExtResource("3_rc0pn"), ExtResource("4_h843c")])
 y_limit = -150
 inf_limit = -70
 sup_limit = 70
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1569689114]
+script = ExtResource("5_e85df")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=206708587]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=632103507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer" unique_id=251667904]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_x5vlx")
+horizontal_alignment = 2
 
 [node name="Bucket" parent="." unique_id=308444015 instance=ExtResource("1_vq0e2")]
 

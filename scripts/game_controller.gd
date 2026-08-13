@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var timer: Timer = $Timer
+@onready var ui_controller: UI_Controller = $CanvasLayer
 
 @export var shape_scenes: Array[PackedScene] = []
 @export var y_limit: int = 0
@@ -15,6 +16,7 @@ func _ready() -> void:
 	hold_shape()
 	can_merge = true
 	score = 0
+	ui_controller.set_score(score)
 	
 func _process(_delta: float) -> void:
 	if shape_holding:
@@ -62,4 +64,6 @@ func _on_merge(level: int, shape_1: Shape, shape_2: Shape) -> void:
 		var _shape_instance: Shape = create_shape(shape_scene, pos)
 	
 	score += 2**level
+	ui_controller.set_score(score)
 	can_merge = false
+	
