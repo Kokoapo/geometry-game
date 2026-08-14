@@ -9,12 +9,10 @@ extends Node2D
 @export var sup_limit: int = 0
 
 var shape_holding: Shape
-var can_merge: bool
 var score: int
 
 func _ready() -> void:
 	hold_shape()
-	can_merge = true
 	score = 0
 	ui_controller.set_score(score)
 	
@@ -51,10 +49,6 @@ func _on_timer_timeout() -> void:
 	hold_shape()
 	
 func _on_merge(level: int, shape_1: Shape, shape_2: Shape) -> void:
-	if not can_merge:
-		can_merge = true
-		return
-	
 	var pos: Vector2 = floor((shape_1.global_position + shape_2.global_position) / 2)
 	shape_1.queue_free()
 	shape_2.queue_free()
@@ -65,5 +59,4 @@ func _on_merge(level: int, shape_1: Shape, shape_2: Shape) -> void:
 	
 	score += 2**level
 	ui_controller.set_score(score)
-	can_merge = false
 	

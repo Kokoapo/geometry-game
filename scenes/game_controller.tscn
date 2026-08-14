@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dyc4vpc07n7h6" path="res://scenes/shapes/circle.tscn" id="2_vc4nx"]
 [ext_resource type="PackedScene" uid="uid://dr3ifbcbfhbys" path="res://scenes/shapes/triangle.tscn" id="3_rc0pn"]
 [ext_resource type="PackedScene" uid="uid://crfoqeonwmalj" path="res://scenes/shapes/square.tscn" id="4_h843c"]
+[ext_resource type="PackedScene" uid="uid://cegv4mvq7f8p" path="res://scenes/shapes/pentagon.tscn" id="5_burlk"]
 [ext_resource type="Script" uid="uid://beyipdo1lbwa5" path="res://scripts/ui_controller.gd" id="5_e85df"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x5vlx"]
@@ -12,7 +13,7 @@ font_size = 32
 
 [node name="GameController" type="Node2D" unique_id=1347987967]
 script = ExtResource("1_vc4nx")
-shape_scenes = Array[PackedScene]([ExtResource("2_vc4nx"), ExtResource("3_rc0pn"), ExtResource("4_h843c")])
+shape_scenes = Array[PackedScene]([ExtResource("2_vc4nx"), ExtResource("3_rc0pn"), ExtResource("4_h843c"), ExtResource("5_burlk")])
 y_limit = -150
 inf_limit = -70
 sup_limit = 70
