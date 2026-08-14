@@ -7,13 +7,14 @@ extends Node2D
 @export var y_limit: int = 0
 @export var inf_limit: int = 0
 @export var sup_limit: int = 0
+@export var level_up: int = 0
 
-var shape_holding: Shape
-var score: int
+var shape_holding: Shape = null
+var score: int = 0
+var current_round: int = 0
 
 func _ready() -> void:
 	hold_shape()
-	score = 0
 	ui_controller.set_score(score)
 	
 func _process(_delta: float) -> void:
@@ -27,7 +28,10 @@ func _input(event: InputEvent) -> void:
 		timer.start()
 
 func get_random_shape_scene() -> PackedScene:
-	var index: int = randi_range(0, shape_scenes.size()-1)
+	var limit: int = current_round / level_up
+	if limit >= shape_scenes.size():
+		limit = shape_scenes.size() - 1
+	var index: int = randi_range(0, limit)
 	return shape_scenes[index]
 
 func hold_shape() -> void:
@@ -47,6 +51,7 @@ func create_shape(shape_scene: PackedScene, pos: Vector2) -> Shape:
 
 func _on_timer_timeout() -> void:
 	hold_shape()
+	current_round += 1
 	
 func _on_merge(level: int, shape_1: Shape, shape_2: Shape) -> void:
 	var pos: Vector2 = floor((shape_1.global_position + shape_2.global_position) / 2)
