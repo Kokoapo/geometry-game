@@ -8,13 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://cegv4mvq7f8p" path="res://scenes/shapes/pentagon.tscn" id="5_burlk"]
 [ext_resource type="Script" uid="uid://beyipdo1lbwa5" path="res://scripts/ui_controller.gd" id="5_e85df"]
 [ext_resource type="PackedScene" uid="uid://b0ubo1sem1q5g" path="res://scenes/shapes/hexagon.tscn" id="6_h0hye"]
+[ext_resource type="PackedScene" uid="uid://cf5w110s87men" path="res://scenes/shapes/heptagon.tscn" id="7_d6ul8"]
+[ext_resource type="PackedScene" uid="uid://b7s4d7vjw5b50" path="res://scenes/shapes/octagon.tscn" id="8_qtg6w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x5vlx"]
 font_size = 32
 
 [node name="GameController" type="Node2D" unique_id=1347987967]
 script = ExtResource("1_vc4nx")
-shape_scenes = Array[PackedScene]([ExtResource("2_vc4nx"), ExtResource("3_rc0pn"), ExtResource("4_h843c"), ExtResource("5_burlk"), ExtResource("6_h0hye")])
+shape_scenes = Array[PackedScene]([ExtResource("2_vc4nx"), ExtResource("3_rc0pn"), ExtResource("4_h843c"), ExtResource("5_burlk"), ExtResource("6_h0hye"), ExtResource("7_d6ul8"), ExtResource("8_qtg6w")])
 y_limit = -150
 inf_limit = -70
 sup_limit = 70

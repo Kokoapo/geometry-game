@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b7s4d7vjw5b50"]
+
+[ext_resource type="Script" uid="uid://y27vjotx4wrw" path="res://scripts/shape.gd" id="1_m3eh1"]
+[ext_resource type="Texture2D" uid="uid://cd07dskc0vbue" path="res://sprites/shapes.png" id="2_qrpyf"]
+
+[node name="Octagon" type="RigidBody2D" unique_id=1388095528]
+script = ExtResource("1_m3eh1")
+level = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043828681]
+position = Vector2(2.3841858e-07, -2.3841858e-07)
+scale = Vector2(4, 4)
+texture = ExtResource("2_qrpyf")
+hframes = 7
+frame = 6
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=103851016]
+polygon = PackedVector2Array(-12, -32, -32, -12, -32, 12, -12, 32, 12, 32, 32, 12, 32, -12, 12, -32)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1571201657]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=233361893]
+polygon = PackedVector2Array(-12, -34, -34, -12, -34, 12, -12, 34, 12, 34, 34, 12, 34, -12, 12, -34)

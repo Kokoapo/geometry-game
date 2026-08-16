@@ -11,7 +11,7 @@ level = 3
 position = Vector2(2.3841858e-07, -2.3841858e-07)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_0l287")
-hframes = 5
+hframes = 7
 frame = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=103851016]
