@@ -21,6 +21,7 @@ y_limit = -150
 inf_limit = -70
 sup_limit = 70
 level_up = 5
+y_game_over = -85
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1569689114]
 script = ExtResource("5_e85df")

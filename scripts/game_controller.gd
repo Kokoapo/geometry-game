@@ -8,10 +8,12 @@ extends Node2D
 @export var inf_limit: int = 0
 @export var sup_limit: int = 0
 @export var level_up: int = 0
+@export var y_game_over: int = 0
 
 var shape_holding: Shape = null
 var score: int = 0
 var current_round: int = 0
+var spawned_shapes: Array[Shape] = []
 
 func _ready() -> void:
 	hold_shape()
@@ -48,15 +50,25 @@ func create_shape(shape_scene: PackedScene, pos: Vector2) -> Shape:
 	
 	call_deferred("add_child", shape_instance)
 	shape_instance.merge.connect(_on_merge)
+	
+	spawned_shapes.append(shape_instance)
 
 	return shape_instance
 
 func _on_timer_timeout() -> void:
+	for shape in spawned_shapes:
+		if shape.position.y <= y_game_over:
+			print("Game Over!")
+	
 	hold_shape()
 	current_round += 1
 	
 func _on_merge(level: int, shape_1: Shape, shape_2: Shape) -> void:
 	var pos: Vector2 = floor((shape_1.global_position + shape_2.global_position) / 2)
+	
+	spawned_shapes.erase(shape_1)
+	spawned_shapes.erase(shape_2)
+	
 	shape_1.queue_free()
 	shape_2.queue_free()
 	
