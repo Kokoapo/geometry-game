@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cf5w110s87men" path="res://scenes/shapes/heptagon.tscn" id="7_d6ul8"]
 [ext_resource type="PackedScene" uid="uid://b7s4d7vjw5b50" path="res://scenes/shapes/octagon.tscn" id="8_qtg6w"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_qtg6w"]
+font_size = 32
+
 [sub_resource type="LabelSettings" id="LabelSettings_x5vlx"]
 font_size = 32
 
@@ -46,6 +49,26 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 50
 
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=2072913374]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=980855613]
+layout_mode = 2
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_qtg6w")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=750928466]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Play Again"
+
 [node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer" unique_id=251667904]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -61,7 +84,8 @@ position = Vector2(0, -74)
 zoom = Vector2(2, 2)
 
 [node name="Timer" type="Timer" parent="." unique_id=558952566]
-wait_time = 0.5
+wait_time = 2.0
 one_shot = true
 
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
