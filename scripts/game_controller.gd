@@ -45,7 +45,8 @@ func _on_merge(level: int, shape_1: Shape, shape_2: Shape) -> void:
 	
 	if level < shape_scenes.size():
 		var shape_scene: PackedScene = shape_scenes[level]
-		var _shape_instance: Shape = create_shape(shape_scene, pos)
+		var shape_instance: Shape = create_shape(shape_scene, pos)
+		shape_instance.apply_force(Vector2(0, -10000))
 	
 	score += 2**level
 	ui_controller.set_score(score)
