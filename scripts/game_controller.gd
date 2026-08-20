@@ -99,7 +99,7 @@ func reset_game() -> void:
 		shape.queue_free()
 	spawned_shapes.clear()
 	
-	hold_shape()
-	score = 0
 	current_round = 0
+	score = 0
+	hold_shape()
 	ui_controller.set_score(score)
