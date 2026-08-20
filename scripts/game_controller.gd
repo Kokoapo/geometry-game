@@ -101,4 +101,5 @@ func reset_game() -> void:
 	
 	hold_shape()
 	score = 0
+	current_round = 0
 	ui_controller.set_score(score)
