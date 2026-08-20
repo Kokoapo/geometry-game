@@ -24,7 +24,7 @@ shape_scenes = Array[PackedScene]([ExtResource("2_vc4nx"), ExtResource("3_rc0pn"
 y_limit = -110
 inf_limit = -80
 sup_limit = 80
-level_up = 5
+level_up = 10
 y_game_over = -67
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=603709769]
