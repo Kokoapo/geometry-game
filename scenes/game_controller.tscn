@@ -11,21 +11,36 @@
 [ext_resource type="PackedScene" uid="uid://cf5w110s87men" path="res://scenes/shapes/heptagon.tscn" id="7_d6ul8"]
 [ext_resource type="PackedScene" uid="uid://b7s4d7vjw5b50" path="res://scenes/shapes/octagon.tscn" id="8_qtg6w"]
 [ext_resource type="PackedScene" uid="uid://drqwln7kixfle" path="res://scenes/shapes/heart.tscn" id="9_1awvl"]
+[ext_resource type="Texture2D" uid="uid://cg611b2bsktok" path="res://sprites/board.png" id="10_kredl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qtg6w"]
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_x5vlx"]
-font_size = 32
 
 [node name="GameController" type="Node2D" unique_id=1347987967]
 script = ExtResource("1_vc4nx")
 shape_scenes = Array[PackedScene]([ExtResource("2_vc4nx"), ExtResource("3_rc0pn"), ExtResource("4_h843c"), ExtResource("5_burlk"), ExtResource("6_h0hye"), ExtResource("7_d6ul8"), ExtResource("8_qtg6w"), ExtResource("9_1awvl")])
-y_limit = -150
-inf_limit = -70
-sup_limit = 70
+y_limit = -115
+inf_limit = -87
+sup_limit = 87
 level_up = 5
-y_game_over = -85
+y_game_over = -90
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=603709769]
+position = Vector2(0, -56)
+texture = ExtResource("10_kredl")
+
+[node name="Bucket" parent="." unique_id=308444015 instance=ExtResource("1_vq0e2")]
+position = Vector2(0, -38)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=706493820]
+position = Vector2(0, -56)
+zoom = Vector2(2, 2)
+
+[node name="Timer" type="Timer" parent="." unique_id=558952566]
+wait_time = 2.0
+one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1569689114]
 script = ExtResource("5_e85df")
@@ -78,15 +93,5 @@ text = "0"
 label_settings = SubResource("LabelSettings_x5vlx")
 horizontal_alignment = 2
 
-[node name="Bucket" parent="." unique_id=308444015 instance=ExtResource("1_vq0e2")]
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=706493820]
-position = Vector2(0, -56)
-zoom = Vector2(2, 2)
-
-[node name="Timer" type="Timer" parent="." unique_id=558952566]
-wait_time = 2.0
-one_shot = true
-
-[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
