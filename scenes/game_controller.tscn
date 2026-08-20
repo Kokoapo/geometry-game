@@ -21,18 +21,18 @@ font_size = 32
 [node name="GameController" type="Node2D" unique_id=1347987967]
 script = ExtResource("1_vc4nx")
 shape_scenes = Array[PackedScene]([ExtResource("2_vc4nx"), ExtResource("3_rc0pn"), ExtResource("4_h843c"), ExtResource("5_burlk"), ExtResource("6_h0hye"), ExtResource("7_d6ul8"), ExtResource("8_qtg6w"), ExtResource("9_1awvl")])
-y_limit = -115
-inf_limit = -87
-sup_limit = 87
+y_limit = -110
+inf_limit = -80
+sup_limit = 80
 level_up = 5
-y_game_over = -90
+y_game_over = -67
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=603709769]
 position = Vector2(0, -56)
 texture = ExtResource("10_kredl")
 
 [node name="Bucket" parent="." unique_id=308444015 instance=ExtResource("1_vq0e2")]
-position = Vector2(0, -38)
+position = Vector2(0, -26)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=706493820]
 position = Vector2(0, -56)

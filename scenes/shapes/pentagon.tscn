@@ -9,15 +9,15 @@ level = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043828681]
 position = Vector2(2.3841858e-07, -2.3841858e-07)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_0l287")
 hframes = 8
 frame = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=103851016]
-polygon = PackedVector2Array(0, -21, -20, -2, -20, 20, 20, 20, 20, -2)
+polygon = PackedVector2Array(0, -14, -14, -2, -14, 14, 14, 14, 14, -2)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1571201657]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=233361893]
-polygon = PackedVector2Array(0, -22, -21, -2, -21, 21, 21, 21, 21, -2)
+polygon = PackedVector2Array(0, -14, -14, -2, -14, 14, 14, 14, 14, -2)

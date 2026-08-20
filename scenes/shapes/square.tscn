@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cd07dskc0vbue" path="res://sprites/shapes.png" id="2_w0ugp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5vlx"]
-size = Vector2(32, 32)
+size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg705"]
-size = Vector2(34, 34)
+size = Vector2(24, 24)
 
 [node name="Square" type="RigidBody2D" unique_id=1388095528]
 script = ExtResource("1_nhblk")
@@ -15,7 +15,7 @@ level = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043828681]
 position = Vector2(2.3841858e-07, -2.3841858e-07)
-scale = Vector2(1.9999999, 1.9999999)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_w0ugp")
 hframes = 8
 frame = 2
